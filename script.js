@@ -69,3 +69,16 @@ console.log('string which have vowels are : -' , vowelArray.filter(onlyVowelStri
 
 const stringAsKeyLengthAsValue = (acc , curr) => ({...acc , [curr] : curr.length})
 console.log('object is :- ' , stringArray.reduce(stringAsKeyLengthAsValue , {}));
+
+
+// CURRYING HOMEWORK
+
+const giveYourName = (userName) => () => console.log(`user logged in is :- ${userName}`) ;
+giveYourName('Rishabh')();
+
+//COMPOSITION HOMEWORK
+
+const getUserId = (id) => id;
+const getUserName = (userName , id) => console.log(`userId : ${id} , userName : ${userName}`);
+
+getUserName('rishabh' , getUserId(1234));
