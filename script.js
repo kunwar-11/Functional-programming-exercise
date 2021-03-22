@@ -46,3 +46,26 @@ console.log('odd sum even sum is : - ' , numberArray.reduce(oddSumEvenSumObject 
 
 
 // ARRAY of STRINGS QUESTIONS
+const stringArray = ['apple' , 'orange' , 'banana' , 'cheeku' , 'papaya' , 'waterMelon'];
+
+//1 string length as key and number of string with that length as value
+const stringLength = stringArray.map(curr => curr.length);
+const uniqueArrayLength = stringLength.filter((each , index) => stringLength.indexOf(each) === index )
+const initialObject = uniqueArrayLength.reduce((acc , curr) => ({...acc , [curr] : 0}) , {});
+console.log(stringArray.reduce((acc , curr) => {
+    for(let i = 0 ; i<uniqueArrayLength.length ; i++) {
+        if(curr.length === uniqueArrayLength[i]) {
+            return {...acc , [curr.length] : acc[curr.length] + 1}
+        }
+    }
+} , initialObject))
+
+//2 array with sring which have vowels
+const vowelArray = ['hello' , 'hola' , 'ydkjs' , 'zxcvb'];
+const onlyVowelString = (curr) => curr.match(/[aeiou]/gi);
+console.log('string which have vowels are : -' , vowelArray.filter(onlyVowelString))
+
+//3 object with string as key and string length as value
+
+const stringAsKeyLengthAsValue = (acc , curr) => ({...acc , [curr] : curr.length})
+console.log('object is :- ' , stringArray.reduce(stringAsKeyLengthAsValue , {}));
