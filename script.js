@@ -87,12 +87,9 @@ getUserName('rishabh' , getUserId(1234));
 // THE ONE HOMEWORK
 const increment = (num) => num+1;
 const square = (num) => num*num;
-const compose = (num , ...rest) => {
+const compose = (...rest) => {
     // console.log(num , rest)
-    return rest.reduce((acc , curr) => {
-        acc = curr(acc);
-        return acc
-    },num)
+    return (num) => rest.reduce((acc , curr) => curr(acc) ,num)
 }
 
-console.log(compose(5,increment , square))
+console.log(compose(increment , square)(2))
